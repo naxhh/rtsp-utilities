@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Video Streaming</title>
+  </head>
+  <body>
+    <h1>Video Streaming</h1>
+
+    <div class="container">
+    {% for n in range(2) %}
+      <div class="camera">
+        <p> Camera {{ n + 1 }}</p>
+        <img src="{{ url_for('video_feed') }}?channel={{ n + 1 }}">
+      </div>
+    {% endfor %}
+    </div>
+  
+  <style>
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+
+    .camera {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: center;
+    }
+
+    .camera p {
+      text-align: center;
+    }
+  </style>
+
+  </body>
+</html>
